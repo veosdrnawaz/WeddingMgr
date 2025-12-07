@@ -1,8 +1,8 @@
+
 import { Guest, Table, Vendor, Task, Viewer } from '../types';
 
 // Replace this with your actual Web App URL after deployment
-// Vite uses import.meta.env.VITE_*, we also fallback to process.env for legacy support
-const API_URL = import.meta.env.VITE_API_URL || process.env.REACT_APP_API_URL || "YOUR_GOOGLE_SCRIPT_WEB_APP_URL";
+const API_URL = process.env.REACT_APP_API_URL || "YOUR_GOOGLE_SCRIPT_WEB_APP_URL";
 
 interface ApiResponse {
     guests: Guest[];
