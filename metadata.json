@@ -1,0 +1,7 @@
+{
+  "name": "Wedding Manager SaaS",
+  "description": "A comprehensive wedding planning SaaS for managing guests, RSVPs, seating, and vendors with AI-powered assistance and Urdu localization support.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
