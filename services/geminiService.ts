@@ -3,11 +3,13 @@ import { GoogleGenAI } from "@google/genai";
 // Ideally, in a real app, this is handled via a secure backend proxy.
 // For this frontend demo, we access the environment variable directly.
 const getClient = () => {
-    const apiKey = process.env.API_KEY;
+    // Support both Vite standard and process.env for compatibility
+    const apiKey = import.meta.env.VITE_API_KEY || process.env.API_KEY || process.env.VITE_API_KEY;
     if (!apiKey) {
-        throw new Error("API Key not found");
+        console.warn("API Key not found. Please set VITE_API_KEY in your environment variables.");
+        // We allow it to fail gracefully later if the key is missing to show the UI
     }
-    return new GoogleGenAI({ apiKey });
+    return new GoogleGenAI({ apiKey: apiKey || '' });
 };
 
 export const generateInviteText = async (
